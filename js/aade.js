@@ -63,8 +63,17 @@ function aade(){
 				that.toggleAccordionIcon();
 				that.hideLoadingIndicator();
 				that.calculateMainContainerHeight();
+				//that.runTaskOnCordova();
 			});
 		});
+	}
+	
+	this.runTaskOnCordova = function(){
+		if( this.checkOnCordova() ){
+			console.log('no cordova')
+		} else {
+			console.log('fora do cordova')
+		}
 	}
 	
 	this.instantiateSlideoutMenu = function(){
@@ -2920,6 +2929,10 @@ function aade(){
 				$divBlockData.addClass('row visible-xs').show();
 			}
 		});
+	}
+	
+	this.checkOnCordova = function(){
+		return !!window.cordova;
 	}
 }
 
